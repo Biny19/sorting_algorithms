@@ -31,13 +31,13 @@ node->next->prev = node;
  */
 size_t deck_len(const deck_node_t *h)
 {
-size_t i = 0;
+size_t cnt = 0;
 while (h != NULL)
 {
-i++;
+cnt++;
 h = h->next;
 }
-return (i);
+return (cnt);
 }
 /**
  * card_to_int - assigns a unique numeric value to each card
@@ -67,14 +67,14 @@ exit(EXIT_FAILURE);
 void sort_deck(deck_node_t **deck)
 {
 int swapped = 1, val1, val2;
-size_t lo = 0, hi = (deck_len(*deck) - 1), i;
+size_t lo = 0, hi = (deck_len(*deck) - 1), i = 0;
 deck_node_t *tmp = *deck;
 if (!deck || !(*deck) || !((*deck)->next))
 return;
 while (swapped)
 {
 swapped = 0;
-for (i = 0; i < hi; i++)
+for (; i < hi; i++)
 {
 val1 = card_to_int(tmp);
 val2 = card_to_int(tmp->next);
@@ -89,7 +89,7 @@ tmp = tmp->next;
 if (!swapped)
 break;
 swapped = 0;
-for (i = 0; i > lo; i--)
+for (; i > lo; i--)
 {
 val1 = card_to_int(tmp);
 val2 = card_to_int(tmp->prev);
