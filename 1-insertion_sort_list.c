@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "sort.h"
 /**
  * swap - swap 2 element in an list
